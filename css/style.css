@@ -1,0 +1,148 @@
+@font-face {
+  font-family: Poppins;
+  src: url(https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+}
+
+:root {
+  --blue-default: #01112d;
+  --golden-dark: #d9a404;
+  --golden: #f1b706;
+  --white: #fff;
+  --black: #000;
+  --grey: #e3e3e3;
+  --ciano: #05aff2;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Poppins;
+  background: var(--blue-default);
+  color: var(--golden);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--white);
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background: var(--grey);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ciano);
+}
+
+.container {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+
+.container .header-welcome{
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    background-image: url(../imgs/bg-header.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    padding: 0 20px;
+}
+
+.container .header-welcome .box-content{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .header-welcome .box-content .dialog{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--blue-default);
+    padding: 20px;
+    border-radius: 4px;
+    gap: 10px;
+}
+
+
+.container .header-welcome .box-content .dialog a{
+    background-color: var(--golden-dark);
+    position: relative;
+    color: var(--black);
+    padding: 10px;
+    font-weight: bolder;
+    transition: 0.4s all;
+    text-transform: uppercase;
+    display: block;
+    border-radius: 4px;
+}
+
+.container .header-welcome .box-content .dialog a:hover{
+    background: var(--golden);
+}
+
+.container .header-welcome .box-content .dialog h1{
+    font-size: 45px;
+    text-transform: uppercase;
+}
+
+.container .header-welcome .box-content .dialog p{
+    font-size: 15px;
+    color: var(--white);
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .container .header-welcome{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container .header-welcome .box-content img{
+        display: block;
+        position: relative;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .container .header-welcome .box-content:nth-child(1){
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+    }
+
+    .container .header-welcome .box-content:nth-child(1) .dialog{
+        background-color: #000000bb;
+        width: 100%;
+    }
+
+    .container .header-welcome .box-content:nth-child(1) .dialog h1{
+        font-size: 30px;
+    }
+
+    .container .header-welcome .box-content:nth-child(1) .dialog p{
+        position: relative;
+        display: block;
+        width: 100%;
+        font-size: 13px;
+        width: 90%;
+    }
+}
