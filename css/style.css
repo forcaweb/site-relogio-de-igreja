@@ -3,6 +3,8 @@
   src: url(https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
 }
 
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
 :root {
   --blue-default: #01112d;
   --golden-dark: #d9a404;
@@ -18,6 +20,7 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 body {
@@ -25,6 +28,7 @@ body {
   font-family: Poppins;
   background: var(--blue-default);
   color: var(--golden);
+  position: relative;
 }
 
 ::-webkit-scrollbar-track {
@@ -38,16 +42,18 @@ body {
   background: var(--ciano);
 }
 
-.container {
+.container-custom {
     display: grid;
     position: relative;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(1, 1fr);
+    width: 100% !important;
+    overflow: hidden;
 }
 
 
-.container .header-welcome{
+.container-custom .header-welcome{
     display: grid;
     position: relative;
     justify-content: center;
@@ -59,9 +65,22 @@ body {
     background-size: cover;
     background-attachment: scroll;
     padding: 0 20px;
+    width: 100%;
+    min-height: 100vh;
 }
 
-.container .header-welcome .box-content{
+.container-custom .header-welcome::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: var(--golden-dark);
+}
+
+.container-custom .header-welcome .box-content{
     display: flex;
     position: relative;
     justify-content: center;
@@ -69,7 +88,7 @@ body {
     flex-direction: column;
 }
 
-.container .header-welcome .box-content .dialog{
+.container-custom .header-welcome .box-content .dialog{
     display: flex;
     position: relative;
     justify-content: center;
@@ -78,11 +97,11 @@ body {
     background-color: var(--blue-default);
     padding: 20px;
     border-radius: 4px;
-    gap: 10px;
+    gap: 20px;
 }
 
 
-.container .header-welcome .box-content .dialog a{
+.container-custom .header-welcome .box-content .dialog a{
     background-color: var(--golden-dark);
     position: relative;
     color: var(--black);
@@ -92,59 +111,163 @@ body {
     text-transform: uppercase;
     display: block;
     border-radius: 4px;
+    text-decoration: none;
 }
 
-.container .header-welcome .box-content .dialog a:hover{
+.container-custom .header-welcome .box-content .dialog a:hover{
     background: var(--golden);
 }
 
-.container .header-welcome .box-content .dialog h1{
+.container-custom .header-welcome .box-content .dialog h1{
     font-size: 45px;
     text-transform: uppercase;
+    display: block;
+    text-align: center;
+    gap: 7px;
+    border-bottom: 2px solid var(--golden);
+    width: 100%;
+    position: relative;
 }
 
-.container .header-welcome .box-content .dialog p{
+.container-custom .header-welcome .box-content .dialog h1 i{
+    font-size: 25px;
+    color: var(--grey);
+}
+
+.container-custom .header-welcome .box-content .dialog p{
     font-size: 16px;
     color: var(--white);
 }
 
 
+.contents-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contents-body .content{
+    position: relative;
+    display: flex;
+    padding: 0 20px;
+    width: 100% !important;
+}
+
+.contents-body .content::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: var(--golden-dark);
+}
+
+.contents-body .content::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: var(--blue-default);
+    z-index: 100;
+}
+
+.contents-body .content .box-content{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contents-body .content .box-content img{
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.contents-body .content .dialog{
+    width: 100%;
+    position: relative;
+    background: linear-gradient(to right, var(--blue-default), transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:50px 30px;
+    max-width: 1000px;
+}
+
+.contents-body .content .dialog h2{
+    font-size: 55px;
+    line-height: 65px;
+    width: 100%;
+}
+
+.contents-body .content .dialog p{
+   text-align: left !important;
+   color: var(--white);
+   line-height: 35px;
+   width: 100%;
+}
+
+.contents-body .content .dialog p strong{
+    display: block;
+    color: var(--golden-dark);
+    font-size: 18px;
+}
+
+
 @media only screen and (max-width: 1200px) {
-    .container .header-welcome{
+    .container-custom .header-welcome{
         grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        padding: 0;
     }
 
-    .container .header-welcome .box-content img{
+    .container-custom .header-welcome .box-content img{
         display: block;
         position: relative;
         width: 100%;
         object-fit: cover;
-        min-height: 100% !important;
+        height: 100% !important;
+        min-height: 100vh;
     }
 
-    .container .header-welcome .box-content:nth-child(1){
+    .container-custom .header-welcome .box-content:nth-child(1){
         position: absolute;
-        bottom: 0;
+        top: 0;
         left: 0;
         z-index: 1000;
         height: 100%;
+        width: 100%;
+        padding: 20px;
     }
 
-    .container .header-welcome .box-content:nth-child(1) .dialog{
+    .container-custom .header-welcome .box-content:nth-child(1) .dialog{
         background-color: rgba(0, 0, 0, 0.4);
-        height: 100%;
+        position: relative;
+        height: 50%;
         width: 100%;
     }
 
-    .container .header-welcome .box-content:nth-child(1) .dialog h1{
+    .container-custom .header-welcome .box-content:nth-child(1) .dialog h1{
         font-size: 30px;
     }
 
-    .container .header-welcome .box-content:nth-child(1) .dialog p{
+    .container-custom .header-welcome .box-content:nth-child(1) .dialog p{
         position: relative;
         display: block;
         width: 100%;
         font-size: 13px;
-        width: 90%;
     }
 }
