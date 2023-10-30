@@ -49,7 +49,6 @@ body {
     align-items: center;
     grid-template-columns: repeat(1, 1fr);
     width: 100% !important;
-    overflow: hidden;
 }
 
 
@@ -150,7 +149,12 @@ body {
 .contents-body .content{
     position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     width: 100% !important;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .contents-body .content::after{
@@ -229,12 +233,22 @@ body {
 
 .container-custom .header-custom{
     position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    z-index: 100;
-    background-color: var(--golden-dark);
-    padding: 10px;
+    top: 0; /* required */
+    z-index: 10000;
+    /* background-color: var(--blue-default); */
+    padding: 10px 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-custom .header-custom img{
+    width: 100%;
+    max-width: 214px;
+    background-color: var(--blue-default);
+    border-radius: 10px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 .container-custom .header-custom ul{
@@ -259,17 +273,30 @@ body {
 }
 
 
-.products-custom img{
+.products-custom .box-content img{
     opacity: 1 !important;
     display: block;
     position: relative !important;
     border-radius: 10px !important;
     object-fit: cover !important;
+    width: 100% !important;
 }
 
 .products-custom iframe{
     width: 100%;
     min-height: 400px;
+}
+
+.products-custom a{
+    color: #fff;
+}
+
+.products-custom a:hover{
+    color: var(--golden);
+}
+
+.info{
+    align-items: flex-start !important;
 }
 
 .products-custom .box-content{
@@ -334,4 +361,33 @@ body {
         width: 100%;
         font-size: 13px;
     }
+
+    .contents-body .content .box-content{
+        width: 100% !important;
+    }
+    
+    .products-custom .box-content{
+        padding: 0 !important;
+    }
+
+    .products-custom .box-content h2{
+        font-size: 35px !important;
+    }
+    
+    .contents-body .content .dialog{
+        padding: 10px;
+    }
+
 }
+
+@media only screen and (max-width: 460px) {
+
+    .container-custom .header-custom{
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--golden-dark);
+        position: sticky;
+    }
+}
+
